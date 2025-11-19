@@ -4,6 +4,11 @@
   gap: 20px;
   padding: 20px;
   background-color: #f9f9f9;
+
+  @media (max-width: 768px) {
+    padding: 12px;
+    gap: 12px;
+  }
 }
 
 .profile-section {
@@ -14,6 +19,12 @@
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+  }
 }
 
 .profile-info h2 {
@@ -25,11 +36,15 @@
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  /* height: 100%; */
+
+  @media (max-width: 768px) {
+    padding: 12px;
+    overflow-x: auto;
+  }
 }
 
 .calendar-wrapper {
-  min-height: 400px;
+  // min-height kaldırıldı - takvimin tam boyutta görünmesi için
 }
 
 .staff-calendar-container {
@@ -38,7 +53,11 @@
   display: flex;
   gap: 20px;
 
-.event-content {
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+
+  .event-content {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -48,6 +67,11 @@
     position: relative;
     width: 100%;
     padding: 0 2px;
+
+    @media (max-width: 768px) {
+      gap: 4px;
+      padding: 0 1px;
+    }
 
     .event-actions {
       display: flex;
@@ -63,12 +87,20 @@
       transform: translateY(-1px);
       margin: 0;
       flex: 1;
+
+      @media (max-width: 768px) {
+        font-size: 10px;
+      }
     }
 
     svg {
       flex-shrink: 0;
       font-size: 16px;
       cursor: pointer;
+
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -121,12 +153,11 @@
     }
 
     .event-shift-accent {
-      flex: 0 0 4px;
-      border-radius: 999px;
-      display: block;
-      align-self: stretch;
-      min-height: 18px;
-      margin-right: 4px;
+      width: 12px;
+      height: 100%;
+      display: inline-block;
+      margin-right: 8px;
+      border-radius: 2px;
     }
 
     &.highlight::before,
@@ -407,6 +438,11 @@
   flex-wrap: wrap;
   gap: 12px;
 
+  @media (max-width: 768px) {
+    gap: 8px;
+    justify-content: center;
+  }
+
   .staff {
     min-height: 32px;
     padding: 0 12px;
@@ -421,6 +457,12 @@
     transition: all 0.3s;
     cursor: pointer;
 
+    @media (max-width: 768px) {
+      padding: 0 10px;
+      min-height: 28px;
+      font-size: 0.9rem;
+    }
+
     svg path {
       fill: #19979c;
       transition: all 0.3s;
@@ -432,6 +474,11 @@
       border-radius: 999px;
       display: inline-block;
       border: 1px solid rgba(0, 0, 0, 0.2);
+
+      @media (max-width: 768px) {
+        width: 8px;
+        height: 8px;
+      }
     }
 
     &.active {
@@ -472,27 +519,45 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  padding: 16px;
 }
 
 .event-detail-content {
   background: #ffffff;
   min-width: 280px;
   max-width: 360px;
+  width: 100%;
   padding: 20px 24px 16px;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   position: relative;
+
+  @media (max-width: 768px) {
+    min-width: auto;
+    max-width: 90%;
+    padding: 16px 20px 12px;
+  }
 }
 
 .event-detail-content h3 {
   margin-top: 0;
   margin-bottom: 12px;
   font-size: 18px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
 }
 
 .event-detail-content p {
   margin: 4px 0;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    margin: 3px 0;
+  }
 }
 
 .event-detail-close {

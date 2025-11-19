@@ -10,13 +10,15 @@ const ProfileCard = ({ profile }: ProfileCardProps) => {
   const resolvedName = profile?.name || AuthSession.getName();
   const resolvedEmail = profile?.email || AuthSession.getEmail();
   const rawRole =
-    profile?.role?.name ?? profile?.role ?? AuthSession.getRoles();
-  const resolvedRole =
-    typeof rawRole === "string" &&
-    rawRole !== "[object Object]" &&
-    rawRole !== "object Object"
-      ? rawRole
-      : "";
+  profile?.role?.name ?? profile?.role ?? AuthSession.getRoles();
+
+const resolvedRole =
+  typeof rawRole === "string"
+    ? rawRole
+    : Array.isArray(rawRole)
+    ? rawRole.join(", ") 
+    : "";
+
 
   return (
     <div className="profile-section">
